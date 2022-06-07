@@ -24,6 +24,6 @@ jobs:
         name: Build & push Docker image
         with:
           image: artemsavchuk94/nginx-actions
-          registry: registry-url.io
+          registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
