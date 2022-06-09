@@ -19,19 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Check out code
-      - name: Application Version
-        id: version
-        uses: paulhatch/semantic-version@v4.0.2
-        with:
-          change_path: "src/service"
-      - name: Database Version
-        id: db-version
-        uses: paulhatch/semantic-version@v4.0.2
-        with:
-          major_pattern: "(MAJOR-DB)"
-          minor_pattern: "(MINOR-DB)"
-          change_path: "src/migrations"
-          namespace: db
+  
    
    
       - uses: mr-smithers-excellent/docker-build-push@v5
