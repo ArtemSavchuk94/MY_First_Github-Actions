@@ -45,8 +45,9 @@ jobs:
       - uses: weseek/ghaction-docker-tags-by-semver@v1.0.5
         with:
           source: 'artemsavchuk94'
-          target: artemsavchuk94/nginx-actions
+          target: artemsavchuk94/nginx-actions:latest
           semver: '1.2.3'
+          additional-tags: 'latest,lts'
           
           
  
