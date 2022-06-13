@@ -20,17 +20,22 @@ jobs:
       - uses: actions/checkout@v2
         name: Check out code
         
-      - name: Semantic versioning
-        id: versioning
-        uses: paulhatch/semantic-version@v4.0.2
+      #- name: Semantic versioning
+       # id: versioning
+        #uses: paulhatch/semantic-version@v4.0.2
+        #with:
+        #  branch: main  
+         # tag_prefix: "v"
+          #major_pattern: "BREAKING CHANGE:"
+          #minor_pattern: "feat:"
+          #format: "${major}.${minor}.${patch}-prerelease${increment}"
+        
+        
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
         with:
-          branch: main  
-          tag_prefix: "v"
-          major_pattern: "BREAKING CHANGE:"
-          minor_pattern: "feat:"
-          format: "${major}.${minor}.${patch}-prerelease${increment}"
-        
-        
+          images: artemsavchuk94/nginx-actions    
         
         
         
@@ -53,7 +58,8 @@ jobs:
         name: Build & push Docker image
         with:
           image: artemsavchuk94/nginx-actions
-          tags : latest, v1.0.${{ github.run_number }}
+          #tags : latest, v1.0.${{ github.run_number }}
+          tags: latest,  ${{ steps.meta.outputs.tags }}
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
