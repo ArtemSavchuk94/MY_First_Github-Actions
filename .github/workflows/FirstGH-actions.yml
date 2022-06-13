@@ -42,7 +42,7 @@ jobs:
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - uses: weseek/ghaction-docker-tags-by-semver@v1
+      - uses: weseek/ghaction-docker-tags-by-semver@v2
         with:
           source: 'artemsavchuk94'
           target: artemsavchuk94/nginx-actions
