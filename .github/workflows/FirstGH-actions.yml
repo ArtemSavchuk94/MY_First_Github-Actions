@@ -7,8 +7,7 @@ on:
   
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  
     
 jobs:
   
@@ -59,7 +58,7 @@ jobs:
         with:
           image: artemsavchuk94/nginx-actions
           #tags : latest, v1.0.${{ github.run_number }}
-          tags: latest,  ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
